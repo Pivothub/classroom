@@ -22,6 +22,7 @@ class GitHubRepository < GitHubResource
   end
 
   def commit_status(ref, **options)
+    return nil unless ref.present?
     @client.combined_status(@id, ref, options)
   end
 
