@@ -15,6 +15,7 @@
 #= require jquery-ujs/src/rails
 #
 #= require turbolinks
+#= require turbolinks/compatibility
 #
 #= require local_time
 #
