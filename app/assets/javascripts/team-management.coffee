@@ -12,16 +12,17 @@ show_flash_message = (msg, type) ->
 fade_flash_message = ->
   $('.flash-application').delay(3000).fadeOut("slow")
 
-$('.groupings.show').ready ->
+$(document).ready ->
+  $('.groupings.show').ready ->
 
-  drake = dragula($('.member-list-draggable').toArray(), {
-    revertOnSpill: true
-  })
+    drake = dragula($('.member-list-draggable').toArray(), {
+      revertOnSpill: true
+    })
 
-  drake.on('drop', (el, source, target) ->
-    user_id = el.children[0].getAttribute('user-id')
-    source_group_id = source.getAttribute('group-id')
-    target_group_id = target.getAttribute('group-id')
-    update_student_count_text(source, source_group_id)
-    update_student_count_text(target, target_group_id)
-  )
+    drake.on('drop', (el, source, target) ->
+      user_id = el.children[0].getAttribute('user-id')
+      source_group_id = source.getAttribute('group-id')
+      target_group_id = target.getAttribute('group-id')
+      update_student_count_text(source, source_group_id)
+      update_student_count_text(target, target_group_id)
+    )
